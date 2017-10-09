@@ -1,0 +1,343 @@
+#! /bin/bash
+
+#Accueil
+echo;
+echo "25 questions pour connaître ton profil de perception sensorielle";
+echo "Visuel / Auditif / Kinesthésique - caphumain.com/vak";
+echo;
+echo "          -Tapez entrée pour commencer";
+read;
+
+#Déclaration des variables
+visu=0;
+audi=0;
+kine=0;
+
+echo "#Question 1";
+echo "Je peux mieux me rappeler des choses que :"
+select choice in "je lis" "j’entends" "je fais";
+do
+  case $choice in
+    "je lis" ) let visu++; break;;
+    "j’entends" ) let audi++; break;;
+    "je fais" ) let kine++; break;;
+  esac
+done
+echo;
+echo "#Question 2";
+echo "Lorsque j’ai quelque chose de nouveau à apprendre, je peux mieux le retenir :"
+select choice in "en le faisant moi-même" "si quelqu’un me l’explique" "si quelqu’un me le montre";
+do
+  case $choice in
+    "en le faisant moi-même" ) let kine+=1; break;;
+    "si quelqu’un me l’explique" ) let audi+=1; break;;
+    "si quelqu’un me le montre" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 3";
+echo "Lorsque que je lis :"
+select choice in "je peux me concentrer et j’apprécie les descriptions des personnages,
+des environs et des objets" "je bouge mes lèvres; j’évite les descriptions longues; je ne remarque pas
+les illustrations" "je bouge et je suis agité; j’aime les histoires quand il y a de l’action dès le début";
+do
+  case $choice in
+    "je peux me concentrer et j’apprécie les descriptions des personnages,
+des environs et des objets" ) let visu+=1; break;;
+    "je bouge mes lèvres; j’évite les descriptions longues; je ne remarque pas
+les illustrations" ) let audi+=1; break;;
+    "je bouge et je suis agité; j’aime les histoires quand il y a de l’action dès le début" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 4";
+echo "Mon écriture peut être décrite comme :"
+select choice in "négligée; j’écris pâle la plupart du temps" "toujours propre" "belle mais qui empire; je pèse habituellement fort sur le crayon";
+do
+  case $choice in
+    "négligée; j’écris pâle la plupart du temps" ) let audi+=1; break;;
+    "toujours propre" ) let visu+=1; break;;
+    "belle mais qui empire; je pèse habituellement fort sur le crayon" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 5";
+echo "Lorsque j’essaie de me rappeler de quelqu’un, j’ai tendance à me souvenir :"
+select choice in "des visages mais j’oublie les noms" "des noms mais j’oublie les visages" "mieux de ce que j’ai fait et non ce que j’ai vu ou parlé de...";
+do
+  case $choice in
+    "des visages mais j’oublie les noms" ) let visu+=1; break;;
+    "des noms mais j’oublie les visages" ) let audi+=1; break;;
+    "mieux de ce que j’ai fait et non ce que j’ai vu ou parlé de..." ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 6";
+echo "Lorsque l’enseignant me donne des directives, je m’en souviens mieux si :"
+select choice in "c’est écrit au tableau" "c’est démontré par un exemple" "c’est verbalisé";
+do
+  case $choice in
+    "c’est écrit au tableau" ) let visu+=1; break;;
+    "c’est démontré par un exemple" ) let kine+=1; break;;
+    "c’est verbalisé" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 7";
+echo "Lorsque j’essaie de me concentrer, je peux être :"
+select choice in "facilement distrait par mes propres pensées" "distrait par des mouvements mais je ne suis pas conscient des sons" "facilement distrait par les sons mais pas par les mouvements";
+do
+  case $choice in
+    "facilement distrait par mes propres pensées" ) let kine+=1; break;;
+    "distrait par des mouvements mais je ne suis pas conscient des sons" ) let visu+=1; break;;
+    "facilement distrait par les sons mais pas par les mouvements" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 8";
+echo "Lorsque je ne suis pas actif, je vais parfois :"
+select choice in "fixer, faire des dessins trouver quelque chose à regarder" "chantonner, me parler ou parler aux autres" "gigoter ou trouver une raison de bouger";
+do
+  case $choice in
+    "fixer, faire des dessins trouver quelque chose à regarder" ) let visu+=1; break;;
+    "chantonner, me parler ou parler aux autres" ) let audi+=1; break;;
+    "gigoter ou trouver une raison de bouger" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 9";
+echo "Mon linge peut être décrit comme :"
+select choice in "propre et soigné" "plutôt propre et confortable" "souvent non assorti";
+do
+  case $choice in
+    "propre et soigné" ) let visu+=1; break;;
+    "plutôt propre et confortable" ) let kine+=1; break;;
+    "souvent non assorti" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 10";
+echo "Je peux me rappeler comment épeler des mots :"
+select choice in "par leur sonorité" "en les écrivant moi-même" "je les visualise";
+do
+  case $choice in
+    "par leur sonorité" ) let audi+=1; break;;
+    "en les écrivant moi-même" ) let kine+=1; break;;
+    "je les visualise" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 11";
+echo "En travaillant en groupe :"
+select choice in "je suis distrait et passe mon temps à dessiner" "je prends habituellement des notes afin de tenir compte de notre travail" "j’aime beaucoup parler de sujets et écouter les autres points de vue";
+do
+  case $choice in
+    "je suis distrait et passe mon temps à dessiner" ) let kine+=1; break;;
+    "je prends habituellement des notes afin de tenir compte de notre travail" ) let visu+=1; break;;
+    "j’aime beaucoup parler de sujets et écouter les autres points de vue" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 12";
+echo "Lorsque je marche dans une salle, je préfère :"
+select choice in "parler de la salle" "regarder autour, les endroits, les choses" "toucher un peu à tout, si possible";
+do
+  case $choice in
+    "parler de la salle" ) let audi+=1; break;;
+    "regarder autour, les endroits, les choses" ) let visu+=1; break;;
+    "toucher un peu à tout, si possible" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 13";
+echo "Lorsque j’imagine quelque chose j’aime :"
+select choice in "le visualiser" "me visualiser avec" "m'imaginez en débattre";
+do
+  case $choice in
+    "le visualiser" ) let visu+=1; break;;
+    "me visualiser avec" ) let kine+=1; break;;
+    "m'imaginez en débattre" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 14";
+echo "Lorsque je suis dans une automobile :"
+select choice in "j’aime écouter la radio" "j’aime regarder à l’extérieur et voir des choses" "je change constamment de position, je suis inconfortable";
+do
+  case $choice in
+    "j’aime écouter la radio" ) let audi+=1; break;;
+    "j’aime regarder à l’extérieur et voir des choses" ) let visu+=1; break;;
+    "je change constamment de position, je suis inconfortable" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 15";
+echo "Les gens peuvent généralement deviner comment je me sens par :"
+select choice in "les mouvements de mon corps" "le ton de ma voix" "mon expression faciale";
+do
+  case $choice in
+    "les mouvements de mon corps" ) let kine+=1; break;;
+    "le ton de ma voix" ) let audi+=1; break;;
+    "mon expression faciale" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 16";
+echo "Lorsque j’ai un problème à résoudre, je préfère :"
+select choice in "faire une liste de solutions possibles afin de pouvoir les voir" "parler à voix haute afin de pouvoir organiser mes pensées" "me mettre tout suite à la tâche afin d’essayer différentes solutions possibles";
+do
+  case $choice in
+    "faire une liste de solutions possibles afin de pouvoir les voir" ) let visu+=1; break;;
+    "parler à voix haute afin de pouvoir organiser mes pensées" ) let audi+=1; break;;
+    "me mettre tout suite à la tâche afin d’essayer différentes solutions possibles" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 17";
+echo "Durant mon temps libres, je préfère :"
+select choice in "écouter la radio, des cassettes ou jouer un instrument" "prendre part à une activité physique comme bâtir ou faire quelque chose" "lire, regarder la télévision, aller voir un film ou une pièce de théâtre";
+do
+  case $choice in
+    "écouter la radio, des cassettes ou jouer un instrument" ) let audi+=1; break;;
+    "prendre part à une activité physique comme bâtir ou faire quelque chose" ) let kine+=1; break;;
+    "lire, regarder la télévision, aller voir un film ou une pièce de théâtre" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 18";
+echo "En tant qu’étudiant, j’aime être récompensé avec :"
+select choice in "des commentaires positifs écris sur mes dissertations ou papiers" "du contact physique comme une poignée de main ou autre action physique" "des commentaires positifs verbalisés à moi ou à la classe";
+do
+  case $choice in
+    "des commentaires positifs écris sur mes dissertations ou papiers" ) let visu+=1; break;;
+    "du contact physique comme une poignée de main ou autre action physique" ) let kine+=1; break;;
+    "des commentaires positifs verbalisés à moi ou à la classe" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 19";
+echo "La meilleure façon pour un(e) enseignant(e) de discipliner est :"
+select choice in "de donner des exercices suplémentaires à l'élève" "de discuter avec l’élève et de le raisonner" "d’isoler l’élève en le séparant du groupe ou de la classe";
+do
+  case $choice in
+    "de donner des exercices suplémentaires à l'élève" ) let kine+=1; break;;
+    "de discuter avec l’élève et de le raisonner" ) let audi+=1; break;;
+    "d’isoler l’élève en le séparant du groupe ou de la classe" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 20";
+echo "Lorsque j’ai des choses à faire avec une personne, je préfère :"
+select choice in "parler en face à face" "l’appeler au téléphone" "lui envoyer un message";
+do
+  case $choice in
+    "parler en face à face" ) let kine+=1; break;;
+    "l’appeler au téléphone" ) let audi+=1; break;;
+    "lui envoyer un message" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 21";
+echo "Si j'ai le choix, je préfère suivre l'actualité en :"
+select choice in "lisant les journaux ou en passant quelques minutes à regarder les nouvelles" "lisant le journal brièvement lorsque j’ai le temps" "écoutant la radio ou les nouvelles à la télévision";
+do
+  case $choice in
+    "lisant les journaux ou en passant quelques minutes à regarder les nouvelles" ) let visu+=1; break;;
+    "lisant le journal brièvement lorsque j’ai le temps" ) let kine+=1; break;;
+    "écoutant la radio ou les nouvelles à la télévision" ) let audi+=1; break;;
+  esac
+done
+echo;
+echo "#Question 22";
+echo "En groupe, ..."
+select choice in "j’aime mettre de la musique, j’ai toujours hâte de parler ou d'écouter les autres parler" "je fais des gestes en parlant et j’ai de la difficulté à écouter les autres parler" "je suis calme et je scrute les expressions des visages";
+do
+  case $choice in
+    "j’aime mettre de la musique, j’ai toujours hâte de parler ou d'écouter les autres parler" ) let audi+=1; break;;
+    "je fais des gestes en parlant et j’ai de la difficulté à écouter les autres parler" ) let kine+=1; break;;
+    "je suis calme et je scrute les expressions des visages" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 23";
+echo "Lorsque je suis en colère, je vais habituellement :"
+select choice in "serrer mes poings, casser quelque chose ou partir" "laisser savoir aux autres tout de suite ce qui me dérange" "faire la gueule";
+do
+  case $choice in
+    "serrer mes poings, casser quelque chose ou partir" ) let kine+=1; break;;
+    "laisser savoir aux autres tout de suite ce qui me dérange" ) let audi+=1; break;;
+    "faire la gueule" ) let visu+=1; break;;
+  esac
+done
+echo;
+echo "#Question 24";
+echo "J’apprends le mieux :"
+select choice in "en ayant vu faire" "en écoutant des instructions verbales" "en ayant l’occasion de participer activement à l’activité ou à la tâche";
+do
+  case $choice in
+    "en ayant vu faire" ) let audi+=1; break;;
+    "en écoutant des instructions verbales" ) let visu+=1; break;;
+    "en ayant l’occasion de participer activement à l’activité ou à la tâche" ) let kine+=1; break;;
+  esac
+done
+echo;
+echo "#Question 25";
+echo "J'aime plutôt :"
+select choice in "la musique" "danser" "les arts plastiques";
+do
+  case $choice in
+    "la musique" ) let audi+=1; break;;
+    "danser" ) let kine+=1; break;;
+    "les arts plastiques" ) let visu+=1; break;;
+  esac
+done
+
+#Pause
+echo;
+echo "Questionnaire terminé";
+echo "          -Tapez entrée pour afficher le résultat";
+read;
+
+#Résultats
+echo "Visuel________$visu";
+echo "Auditif_______$audi";
+echo "Kinesthésique_$kine";
+
+echo "          -Tapez entrée pour continuer";
+read;
+if [ $visu -ge $audi ] && [ $visu -ge $kine ]
+then
+  echo "La personne au profil préférentiel visuel apprend mieux en utilisant ses yeux et ses oreilles ensemble.
+1. Lis à voix haute, pointe du doigt chaque mot, trace les lettres, écris des mots dans les airs.
+2. Utilise des graphiques, cartes ou petites notes pour étudier.
+3. Quand tu prends des notes, utilise des phrases courtes, les idées principales, des dessins, des chartes, des enregistrements sur cassette, etc.
+4. Étudie dans un endroit silencieux et tranquille.
+5. Fais des comparaisons visuelles en trouvant des différences et/ou des similarités dans des portraits, des idées, des phrases.
+6. Associe des mots clés à des concepts, un portrait à un mot, un mot à une définition. En géographie fait un casse-tête avec les endroits géographiques.
+7. Fais une charte des idées principales ou de la séquence d’événements.
+8. Vois dans ta tête ce que l’enseignant dit exemple : un poisson, un chat, l’ordinateur.";
+fi
+
+if [ $audi -ge $visu ] && [ $audi -ge $kine ]
+then
+  echo "La personne au profil préférentiel auditif apprend mieux en utilisant ses yeux et
+ses oreilles ensemble, combiner les suggestions des « visuels » et ceux-ci :
+1.Fais-toi une image dans ta tête de ce que tu étudies et parle de ce que tu vois.
+2.Lis tes notes à voix haute.
+3.Enregistre tes notes, ensuite, écoute tout en lisant tes notes.
+4.Tu peux demander à quelqu’un de te lire tes notes tout en suivant tes notes.";
+fi
+
+if [ $kine -ge $visu ] && [ $kine -ge $audi ]
+then
+  echo "La personne au profil préférentiel kinesthésique apprend mieux lorsqu’elle touche à ce qu’elle étudie et lorsqu’elle est impliquée dans un genre de mouvement.
+1. Si tu étudies les cartes, trace la bordure des lacs, des rivières, des chemins avec tes doigts
+lorsque tu lis à leurs sujets. Utilise un globe et touche-le en étudiant.
+2. Si tu étudies une histoire ou une pièce de théâtre, tu peux bénéficier de te lever et de tenir
+le rôle d’un ou de plusieurs personnages.
+3. Fais des modèles et utilise les matériaux, par exemple, les équipements tels que les
+microscopes ou l’utilisation de vraies surfaces en mathématiques peuvent t’aider.
+4. Tu bénéficieras de résumer les concepts ou les points clés de tes notes. Tu devrais écrire
+certains mots plusieurs fois afin que ta main, ton bras et ton épaule soient aussi habitués
+à ce que tu étudies.";
+fi
